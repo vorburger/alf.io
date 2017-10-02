@@ -69,7 +69,7 @@ public class InvoiceReceiptController {
 
     private Optional<byte[]> buildDocument(Event event, TicketReservation reservation, Function<Map<String, Object>, Optional<byte[]>> documentGenerator) {
         OrderSummary orderSummary = Json.fromJson(reservation.getInvoiceModel(), OrderSummary.class);
-        Optional<String> vat = Optional.ofNullable(orderSummary.getVatPercentage());
+        Optional<String> vat = Optional.ofNullable(orderSummary.getVatNr());
         Map<String, Object> reservationModel = ticketReservationManager.prepareModelForReservationEmail(event, reservation, vat, orderSummary);
         return documentGenerator.apply(reservationModel);
     }

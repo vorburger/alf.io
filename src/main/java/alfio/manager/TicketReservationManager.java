@@ -475,7 +475,7 @@ public class TicketReservationManager {
     }
 
     @Transactional(readOnly = true)
-    public Map<String, Object> prepareModelForReservationEmail(Event event, TicketReservation reservation, Optional<String> vat, OrderSummary summary) {
+    public Map<String, Object> prepareModelForReservationEmail(Event event, TicketReservation reservation, Optional<String> vatNr, OrderSummary summary) {
         Organization organization = organizationRepository.getById(event.getOrganizationId());
         List<Ticket> tickets = findTicketsInReservation(reservation.getId());
         String reservationUrl = reservationUrl(reservation.getId());
@@ -483,7 +483,7 @@ public class TicketReservationManager {
         Optional<String> invoiceAddress = configurationManager.getStringConfigValue(Configuration.from(event.getOrganizationId(), event.getId(), ConfigurationKeys.INVOICE_ADDRESS));
         Optional<String> bankAccountNr = configurationManager.getStringConfigValue(Configuration.from(event.getOrganizationId(), event.getId(), ConfigurationKeys.BANK_ACCOUNT_NR));
         Optional<String> bankAccountOwner = configurationManager.getStringConfigValue(Configuration.from(event.getOrganizationId(), event.getId(), ConfigurationKeys.BANK_ACCOUNT_OWNER));
-        return TemplateResource.prepareModelForConfirmationEmail(organization, event, reservation, vat, tickets, summary, reservationUrl, reservationShortID, invoiceAddress, bankAccountNr, bankAccountOwner);
+        return TemplateResource.prepareModelForConfirmationEmail(organization, event, reservation, vatNr, tickets, summary, reservationUrl, reservationShortID, invoiceAddress, bankAccountNr, bankAccountOwner);
     }
 
     @Transactional(readOnly = true)

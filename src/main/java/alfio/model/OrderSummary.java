@@ -29,8 +29,19 @@ public class OrderSummary {
     private final String totalVAT;
     private final boolean waitingForPayment;
     private final boolean cashPayment;
+
+    //wrong name! should be vatNr
     private final String vatPercentage;
     private final PriceContainer.VatStatus vatStatus;
+
+    @Deprecated
+    public String getVatPercentage() {
+        return vatPercentage;
+    }
+
+    public String getVatNr() {
+        return vatPercentage;
+    }
 
     /* lol jmustache */
     public boolean getFree() {

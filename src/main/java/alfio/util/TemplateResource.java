@@ -236,7 +236,7 @@ public enum TemplateResource {
     public static Map<String, Object> prepareModelForConfirmationEmail(Organization organization,
                                                                        Event event,
                                                                        TicketReservation reservation,
-                                                                       Optional<String> vat,
+                                                                       Optional<String> vatNr,
                                                                        List<Ticket> tickets,
                                                                        OrderSummary orderSummary,
                                                                        String reservationUrl,
@@ -248,8 +248,8 @@ public enum TemplateResource {
         model.put("organization", organization);
         model.put("event", event);
         model.put("ticketReservation", reservation);
-        model.put("hasVat", vat.isPresent());
-        model.put("vatNr", vat.orElse(""));
+        model.put("hasVat", vatNr.isPresent());
+        model.put("vatNr", vatNr.orElse(""));
         model.put("tickets", tickets);
         model.put("orderSummary", orderSummary);
         model.put("reservationUrl", reservationUrl);

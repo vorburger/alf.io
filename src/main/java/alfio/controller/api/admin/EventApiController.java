@@ -499,8 +499,8 @@ public class EventApiController {
         try(OutputStream os = response.getOutputStream(); ZipOutputStream zipOS = new ZipOutputStream(os)) {
             for (TicketReservation reservation : ticketReservationManager.findAllInvoices(event.getId())) {
                 OrderSummary orderSummary = Json.fromJson(reservation.getInvoiceModel(), OrderSummary.class);
-                Optional<String> vat = Optional.ofNullable(orderSummary.getVatPercentage());
-                Map<String, Object> reservationModel = ticketReservationManager.prepareModelForReservationEmail(event, reservation, vat, orderSummary);
+                Optional<String> vatNr = Optional.ofNullable(orderSummary.getVatNr());
+                Map<String, Object> reservationModel = ticketReservationManager.prepareModelForReservationEmail(event, reservation, vatNr, orderSummary);
                 Optional<byte[]> pdf = TemplateProcessor.buildInvoicePdf(event, fileUploadManager, new Locale(reservation.getUserLanguage()), templateManager, reservationModel);
 
                 if(pdf.isPresent()) {
