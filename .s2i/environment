@@ -1,0 +1,12 @@
+# The executable JAR is the Spring *-boot.war, not the *.jar
+ARTIFACT_COPY_ARGS=*-boot.war
+
+# see what we can do about removing the fixed version number here..
+# TODO https://github.com/fabric8io-images/s2i/issues/123 and then:
+# JAVA_APP_JAR=*-boot.war
+JAVA_APP_JAR=alfio-1.14-SNAPSHOT-boot.war
+
+# For all the other options available here, see
+# https://github.com/fabric8io-images/s2i/tree/master/java/images/jboss
+
+# see README.md for what this is all about
