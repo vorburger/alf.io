@@ -148,3 +148,10 @@ It will expire the 02/07/23 (as https://www.apple.com/certificateauthority/).
  - demo: enable demo mode, the accounts for the admin will be created on the fly
  - disable-jobs: disable jobs
  - jdbc-session: enable saving the http session in the database
+
+
+## Cloud Deployments
+
+### OpenShift
+
+see [the dedicated README.md in .s2i/](.s2i/README.md) for how to set up Alf.io on [OpenShift](https://www.openshift.com)!
