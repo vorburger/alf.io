@@ -1,8 +1,9 @@
 # How to set up Alf.io on OpenShift
 
-You'll either need to [locally install minishift](https://docs.openshift.org/latest/minishift/index.html) (great for testing!),
+You'll either need to [locally install minishift](https://docs.openshift.org/latest/minishift/index.html) 
+(great for testing! perhaps slightly increase resources from the default via `minishift config set memory 4096; minishift config set cpus 4`),
 or need to create at least a FREE TRIAL ;-) account on [openshift.com](https://www.openshift.com).
-Either way you'll the OC CLI, and then thanks to the configuration in alf.io/.s2i/ can simply do:
+Either way you'll use the OC CLI, and then thanks to the configuration in alf.io/.s2i/ can simply do:
 
     TODO...
 
