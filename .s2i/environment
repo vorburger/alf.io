@@ -9,4 +9,6 @@ JAVA_APP_JAR=alfio-1.14-SNAPSHOT-boot.war
 # For all the other options available here, see
 # https://github.com/fabric8io-images/s2i/tree/master/java/images/jboss
 
+ALFIO_LOG_STDOUT_ONLY=true
+
 # see README.md for what this is all about
