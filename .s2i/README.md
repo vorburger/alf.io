@@ -1,29 +1,23 @@
 # How to set up Alf.io on OpenShift
 
-You'll either need to [locally install minishift](https://docs.openshift.org/latest/minishift/index.html) 
+_TODO Move all of this up into the main README..._
+
+You'll either need to [locally install minishift](https://docs.openshift.org/latest/minishift/index.html)
 (great for testing! perhaps slightly increase resources from the default via `minishift config set memory 4096; minishift config set cpus 4`),
 or need to create at least a FREE TRIAL ;-) account on [openshift.com](https://www.openshift.com).
 Either way you'll use the OC CLI, and then thanks to the configuration in alf.io/.s2i/ can simply do:
 
 _TODO How to fully automate all this?_
 
+    oc login https://... --token=...
+
     oc new-project alf-io
+
+    oc apply -f alfio-on-openshift.yaml
 
 _TODO How to give the service a better name than "postgresql-95-centos7" ?
 
 _TODO How to use a secret for the password?_
-
-    oc new-app \
-        -e POSTGRESQL_USER=alfy \
-        -e POSTGRESQL_PASSWORD=237vnaw8zevbaacwzebt \
-        -e POSTGRESQL_DATABASE=alfio \
-        centos/postgresql-95-centos7
-
-_TODO How to do this from the CLI?_ Use the OpenShift UI: Storage > Create Storage "alf.io-db".
-
-_TODO How to do this from the CLI?_ Use the OpenShift UI: Applications > Deplyoment > postgres > Pause Rollouts,
-Configuration: Remove the default empty dir volume,  Add storage, Storage = "alf.io-db" (create above) & Mount Path = /var/lib/pgsql/data,
-unpause rollouts.
 
     oc new-app fabric8/s2i-java~https://github.com/vorburger/alf.io#openshift \
         -e POSTGRES_ENV_POSTGRES_USERNAME=alfy \
