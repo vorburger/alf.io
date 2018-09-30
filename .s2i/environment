@@ -11,7 +11,7 @@ JAVA_APP_JAR=alfio-2.0-M0-SNAPSHOT-boot.war
 
 # Now the fixed Alf.io options:
 ALFIO_LOG_STDOUT_ONLY=true
-SPRING_PROFILES_ACTIVE=http,jdbc-session
+SPRING_PROFILES_ACTIVE=dev,http,jdbc-session
 
 # These options must be passed in environment variables to the container:
 # POSTGRES_PORT_5432_TCP_ADDR=localhost
