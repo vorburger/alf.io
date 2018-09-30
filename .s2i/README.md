@@ -43,9 +43,11 @@ add a `containerPort: 8080` (like the existing 8778 & 9779), and then in Applica
 add an additional `port` etc. for 8080, and in Applications > Routes > alfio > Edit YAML
 and change the from `targetPort: 8778-tcp` to `targetPort: 8080-tcp`.
 
-Now open e.g. `http://alfio-alf-io.192.168.42.182.nip.io/` ...
+_TODO How to avoid having to do this??_ Use the OpenShift UI: Applications > Routes > alfio > Edit,
+enable Secure route, TLS Termination: Edge, Insecure Traffic: Redirect; no Certificates
+(see https://github.com/alfio-event/alf.io/issues/511).
 
-_TODO Something is NOK with the 8080 port... auto-forwarding to 8443... see https://github.com/alfio-event/alf.io/issues/511 :-(_
+Now open e.g. `https://alfio-alf-io.192.168.42.182.nip.io/admin` ...
 
 _TODO How to add a healthcheck to Postgres._
 _TODO How to have monitoring metrics for Postgres._
