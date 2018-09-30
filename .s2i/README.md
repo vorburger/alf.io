@@ -15,16 +15,13 @@ _TODO How to fully automate all this?_
 
     oc apply -f alfio-on-openshift.yaml
 
-_TODO How to give the service a better name than "postgresql-95-centos7" ?
+    oc start-build alfio
+
+_TODO How to make it trigger a (first) build automatically on apply?_
+
+_TODO How to give the service a better name than "postgresql-95-centos7" ?_
 
 _TODO How to use a secret for the password?_
-
-    oc new-app fabric8/s2i-java~https://github.com/vorburger/alf.io#openshift \
-        -e POSTGRES_ENV_POSTGRES_USERNAME=alfy \
-        -e POSTGRES_ENV_POSTGRES_PASSWORD=237vnaw8zevbaacwzebt \
-        -e POSTGRES_ENV_POSTGRES_DB=alfio \
-        -e POSTGRES_PORT_5432_TCP_ADDR=postgresql-95-centos7 \
-        -e POSTGRES_PORT_5432_TCP_PORT=5432
 
     oc expose svc/alfio
 
